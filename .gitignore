@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+hf_cache/
+TRANSFORMERS_CACHE/
+HF_HOME/
+groq_debug*
+*.log
