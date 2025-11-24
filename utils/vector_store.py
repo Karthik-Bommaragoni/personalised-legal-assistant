@@ -1,9 +1,32 @@
+
 import os
-import traceback
-from langchain.vectorstores import FAISS
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.docstore.document import Document
 import sys
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+
+try:
+    
+    from langchain_community.vectorstores import FAISS
+except Exception:
+    try:
+        
+        from langchain.vectorstores import FAISS
+    except Exception:
+        raise ImportError(
+            "FAISS import failed. Install 'langchain-community' or a compatible 'langchain' version. "
+            "See requirements note."
+        )
+
+
+try:
+    from langchain.text_splitter import RecursiveCharacterTextSplitter
+    from langchain.docstore.document import Document
+except Exception:
+    
+    from langchain.text_splitter import RecursiveCharacterTextSplitter
+    from langchain.docstore.document import Document
+
 sys.path.insert(0, r"D:\Langchain\legal_assistant")
 from config.config import TEXT_DIR, VECTOR_DB_DIR, CHUNK_SIZE, CHUNK_OVERLAP, TOP_K_RESULTS
 from models.embeddings import get_embeddings

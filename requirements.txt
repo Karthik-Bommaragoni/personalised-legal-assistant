@@ -1,6 +1,7 @@
 streamlit>=1.24
-langchain>=0.2
-langchain-community>=0.0.###  # optional: the new community package if you use it
+langchain
+langchain-community
+langchain-huggingface
 faiss-cpu
 sentence-transformers
 transformers
@@ -8,3 +9,4 @@ torch
 duckduckgo_search
 python-dotenv
 groq
+protobuf==3.20.3
